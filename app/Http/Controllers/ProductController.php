@@ -50,7 +50,6 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $productType = ProductType::all();
-        
         return view('product.edit', compact('product', 'productType'));
     }
 
