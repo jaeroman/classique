@@ -9,8 +9,9 @@ Edit Product - Dashboard
 @include('includes.sidebar')
 
 <div class="column is-main-content">
-    <form method="POST" action="/product">
+    <form method="POST" action="/product/{{$product->id}}">
     @csrf
+    @method('PATCH')
         <div class="columns is-centered">
                 <div class="column is-6">
                   <div class="panel">
