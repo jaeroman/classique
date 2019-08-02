@@ -15,7 +15,7 @@ Inventory - Dashboard
               <form>
                   <div class="field has-addons is-pulled-right">
                       <div class="control">
-                        <input class="input" type="text" placeholder="Search....">
+                        <input class="input" type="text" value="{{ isset($search) ? $search : '' }}" name="search" placeholder="Search....">
                       </div>
                       <div class="control">
                         <a class="button is-info is-outlined">
@@ -45,6 +45,7 @@ Inventory - Dashboard
         </thead>
 
         <tbody>
+            @if($product->count())
             @foreach ($product as $item)
             <tr>
                 <form method="POST" action="/product/{{ $item->id }}">
@@ -63,83 +64,15 @@ Inventory - Dashboard
                 </form>
            </tr>
             @endforeach
-           
+            @endif
         </tbody>
     </table>
     
     
 </div>
 
-
-            
-           
-
-
   </div> 
 
         </div>
 
-
-
-
-
-
-
-
-
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">INVENTORY</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <a href="/product/create" class="btn btn-danger">ADD</a>
-                        
-                   
-
-
-                        <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Action</th>
-                                    <th scope="col"></th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                @foreach ($product as $item)
-                                  <tr>
-                                    <td>{{ $item->productName }}</td>
-                                    <td>{{ $item->productDescription }}</td>
-                                    <td>{{ $item->productPrice }}</td>
-                                    <td>{{ $item->productType->type }}</td>
-                                    <td><a class="btn btn-warning" href="/product/{{ $item->id }}/edit">EDIT</a></td>
-                                    <td> <form method="POST" action="/product/ {{ $item->id }}">
-                                      @csrf
-                                      @method('DELETE')
-                                      <a onclick="return confirm('Are you sure?')"> <button type="submit" class="btn btn-danger">DELETE</button></a>
-                                      </form></td>
-                                    <td><a class="btn btn-success" href="/stock/{{ $item->id }}">SHOW STOCKS</a></td>
-                                  </tr>
-                                @endforeach
-                                </tbody>
-                              </table>
-                    
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 @endsection

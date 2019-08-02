@@ -6,6 +6,8 @@ Add Product - Dashboard
 
 @section('content')
 
+
+
 @include('includes.sidebar')
 
 <div class="column is-main-content">
@@ -20,14 +22,14 @@ Add Product - Dashboard
                     <div class="panel-block">
                
                       <div class="card">
-            
+                    @include('includes.errors')
                     <!-- Name -->
                     <div class="field">
                         <label class="label">
                             Product Name
                         </label>
                         <p class="control">
-                            <input class="input" type="text" placeholder="Name" name="productName" />
+                            <input class="input" type="text" placeholder="Name" name="productName" required/>
                         </p>
                     </div>
     
@@ -53,7 +55,7 @@ Add Product - Dashboard
                             Product Price
                         </label>
                         <p class="control">
-                            <input class="input" type="text" placeholder="Price" name="productPrice" />
+                            <input class="input" type="text" placeholder="Price" name="productPrice" required/>
                         </p>
                     </div>
             
@@ -74,7 +76,7 @@ Add Product - Dashboard
                             <button type="submit" class="button is-success is-outlined">SUBMIT</button>
                         </p>
                     </div>
-                
+                    
                 </div>
     
             </div> 

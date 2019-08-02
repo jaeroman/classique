@@ -1,3 +1,98 @@
+@extends('layouts.admin')
+
+@section('title')
+{{ $stock->products->productName }} - Edit Stocks
+@endsection
+
+@section('content')
+
+@include('includes.sidebar')
+
+<div class="column is-main-content">
+    <form method="POST" action="/stock/{{ $stock->id }}/{{ $stock->products->id }}">
+    @csrf
+    @method('PATCH')
+        <div class="columns is-centered">
+                <div class="column is-6">
+                  <div class="panel">
+                    <p class="panel-heading has-text-black-bis">
+                        {{ $stock->products->productName }}
+                    </p>
+                    <div class="panel-block">
+                      <div class="card">
+                    @include('includes.errors')
+                        <!-- Quantity -->
+                            <div class="field">
+                                <label class="label">
+                                    Quantity
+                                </label>
+                                <p class="control">
+                                    <input class="input" type="text" placeholder="Quantity" name="stocksQuantity" value="{{ $stock->stocksQuantity }}" required/>
+                                </p>
+                            </div>
+
+                            <!-- Date Arrived -->
+                            <div class="field">
+                                <label class="label">
+                                    Date Arrived
+                                </label>
+                                <p class="control">
+                                        <input class="input" type="date" name="dateArrived"/>
+                                </p>
+                            </div>
+
+                            <!-- Expiration Date -->
+                            <div class="field">
+                                    <label class="label">
+                                        Expiration Date
+                                    </label>
+                                    <p class="control">
+                                            <input class="input" type="date" name="expirationDate"/>
+                                    </p>
+                                </div>
+                   
+                    <!-- Buttons -->
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <a href="/stock/{{ $stock->products->id }}" class="button is-info is-outlined">BACK</a>
+                            <button type="submit" class="button is-success is-outlined">SUBMIT</button>
+                        </p>
+                    </div>
+                    
+                </div>
+    
+            </div> 
+    
+                  </div>
+                </div>
+    
+              </div>
+            </form>
+        </div>  
+      </div>
+
+@endsection
+
+
+
+
+
+
+
+
+
+{{-- 
+
+
+
+
+
+
+
+
+
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -43,4 +138,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

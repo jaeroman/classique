@@ -15,9 +15,22 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Product $product)
+    public function index(Request $request, Product $product)
     {
-         $product = Product::all();
+
+        $search = $request['search'];
+
+          if(request()->has('search')){
+                $product = Product::where(function ($query) {
+                $query->where('productName', 'LIKE', '%'.request('search').'%');
+            })
+            ->get();
+        }
+
+        else{
+            $product = Product::orderBy('productName')->get();
+        }
+        
          return view('product.index', compact('product'));  
     }
 
