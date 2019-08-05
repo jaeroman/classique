@@ -46,7 +46,7 @@ class StockController extends Controller
 
         $productName = Stock::where('product_id', $id)->first(); //getting the product name
 
-        $stocks = Stock::where('product_id', $id)->orderBy('dateArrived', 'DESC')->get(); // getting the stocks
+        $stocks = Stock::where('product_id', $id)->orderBy('dateArrived', 'DESC')->paginate(5); // getting the stocks
 
         return view('stock.show', compact('productName', 'stocks','id'));
     }

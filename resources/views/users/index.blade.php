@@ -1,55 +1,83 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
+@section('title')
+Members - Dashboard
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">MEMBERS</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+@include('includes.sidebar')
 
-                    <a href="/user/create" class="btn btn-danger">ADD A MEMBER</a>
-                        
-                   
+<div class="column is-main-content">
+    <h1 class="has-text-centered has-text-black-bis is-size-4">MEMBERS</h1>
 
-
-                        <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Contact Number</th>
-                                    <th scope="col">Action</th>
-                                    <th scope="col"></th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                @foreach ($users as $item)
-                                  <tr>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>{{ $item->contactNo }}</td>
-                                    <td><a class="btn btn-warning" href="/user/{{ $item->id }}/edit">EDIT</a></td>
-                                    <td> <form method="POST" action="/user/{{ $item->id }}">
-                                      @csrf
-                                      @method('DELETE')
-                                      <a onclick="return confirm('Are you sure?')"> <button type="submit" class="btn btn-danger">DELETE</button></a>
-                                      </form></td>
-                                  </tr>
-                                @endforeach
-                                </tbody>
-                              </table>
-                    
-                    
+          <div class="container">
+              <form>
+                  <div class="field has-addons is-pulled-right">
+                      <div class="control">
+                        <input class="input" type="text" value="{{ isset($search) ? $search : '' }}" name="search" placeholder="Search....">
+                      </div>
+                      <div class="control">
+                        <a class="button is-info is-outlined">
+                          Search
+                        </a>
+                      </div>
+                      
+                  </div>
+                 <div class="field has-addons is-pulled-left">
+                    <a href="/user/create" class="button is-info is-outlined">Add a Member</a>
+              
                 </div>
+
+              </form>
             </div>
-        </div>
-    </div>
+
+<div class="panel-table is-desktop is-centered">
+    <table class="table is-hoverable pricingtable">
+        
+        <thead>
+            <tr>
+                <th>CLASSIQUE ID</th>
+                <th>NAME</th>
+                <th>CONTACT NUMBER</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if($users->count())
+            @foreach ($users as $item)
+            <tr>
+                <form method="POST" action="/user/{{ $item->id }}">
+                <td>12345</td>
+                <td>{{ $item->name }}</td>
+                @if ($item->contactNo)
+                <td>{{ $item->contactNo }}</td>
+                @else
+                <td>N/A</td>
+                @endif
+                <td>
+                  <a href="/user/{{$item->id}}/edit" class="button is-primary is-outlined">Edit</a>
+
+                  
+                    @csrf
+                    @method('DELETE')
+                    <a onclick="return confirm('Are you sure?')"> <button class="button is-danger is-outlined" type="submit" >Delete</button></a>
+
+                  <a href="" class="button is-info is-outlined">More Info</a></td>
+                </form>
+           </tr>
+            @endforeach
+            @endif
+        </tbody>
+    </table>
+
+      {{ $users->appends(['search' => $search])->links() }}
+        
 </div>
+
+  </div> 
+
+        </div>
+
 @endsection

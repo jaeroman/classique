@@ -13,10 +13,25 @@ class UserController extends Controller
         $this->middleware('Admin');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-       $users = User::all();
-       return view('users.index', compact('users'));
+
+        $search = $request['search'];
+
+    if(request()->has('search')){
+              $users = User::where(function ($query) {
+              $query->where('name', 'LIKE', '%'.request('search').'%')
+              ->where('role', 'Member');
+            //   ->orWhere('classiqueID', 'LIKE', '%'.request('search').'%');
+          })
+          ->paginate(5);
+      }
+
+      else{
+          $users = User::where('role', 'Member')->orderBy('name')->paginate(1);
+      }
+
+       return view('users.index', compact('users', 'search'));
     }
 
     public function create()
@@ -45,7 +60,7 @@ class UserController extends Controller
     {
         $attributes = request()->validate([
             'name' => ['required', 'min:3'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'contactNo' => ['required', 'min:3']
         ]);
 

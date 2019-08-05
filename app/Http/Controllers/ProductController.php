@@ -24,14 +24,14 @@ class ProductController extends Controller
                 $product = Product::where(function ($query) {
                 $query->where('productName', 'LIKE', '%'.request('search').'%');
             })
-            ->get();
+            ->paginate(5);
         }
 
         else{
-            $product = Product::orderBy('productName')->get();
+            $product = Product::orderBy('productName')->paginate(5);
         }
         
-         return view('product.index', compact('product'));  
+         return view('product.index', compact('product', 'search'));  
     }
 
 

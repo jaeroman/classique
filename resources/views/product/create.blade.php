@@ -29,7 +29,7 @@ Add Product - Dashboard
                             Product Name
                         </label>
                         <p class="control">
-                            <input class="input" type="text" placeholder="Name" name="productName" required/>
+                            <input class="input" type="text" placeholder="Name" name="productName" value="{{ (old('productName')) }}" required/>
                         </p>
                     </div>
     
@@ -41,8 +41,9 @@ Add Product - Dashboard
                         <p class="control">
                                 <div class="select">
                             <select name="product_type_id">
+                                <option selected disabled>Select the type of product</option>
                                 @foreach ($productType as $item)  
-                                    <option value="{{ $item->id }}">{{ $item->type }}</option>
+                                <option value="{{ $item->id }}">{{ $item->type }}</option>
                                 @endforeach
                             </select>
                             </div>
@@ -55,7 +56,7 @@ Add Product - Dashboard
                             Product Price
                         </label>
                         <p class="control">
-                            <input class="input" type="text" placeholder="Price" name="productPrice" required/>
+                            <input class="input" type="text" placeholder="Price" name="productPrice" value="{{ (old('productPrice')) }}" required/>
                         </p>
                     </div>
             

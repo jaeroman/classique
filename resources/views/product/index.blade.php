@@ -68,7 +68,8 @@ Inventory - Dashboard
         </tbody>
     </table>
     
-    
+    {{-- {{ $product->links()  }}  --}}
+    {{ $product->appends(['search' => $search])->links() }}
 </div>
 
   </div> 

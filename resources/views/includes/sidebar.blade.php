@@ -12,7 +12,7 @@
           PAGES
         </p>
         <ul class="menu-list">
-          <li><a href="/product" class="is-active">Inventory</a></li>
+          <li><a href="/product">Inventory</a></li>
           <li><a href="">Sales</a></li>
           <li><a href="/user">Members</a></li>
           <li><a href="">Transactions</a></li>

@@ -72,7 +72,8 @@ Stocks - Dashboard
         </tbody>
     </table>
     
-    
+    {{ $stocks->links() }}
+
 </div>
 
   </div> 
