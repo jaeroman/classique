@@ -55,7 +55,12 @@ Members - Dashboard
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->confirmationNo }}</td>
                 <td>{{ $item->triNo }}</td>
+                @if ($item->effectivityDateFrom)
                 <td>{{ $item->effectivityDateFrom->format('M d, Y').' - '.$item->effectivityDateTo->format('M d, Y') }}</td>
+                @else
+                <td>N/A</td>   
+                @endif
+
                 <td>
                   <a href="/user/{{$item->id}}/edit" class="button is-primary is-outlined">Edit</a>
 

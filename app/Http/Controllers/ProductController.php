@@ -19,7 +19,6 @@ class ProductController extends Controller
     {
 
         $search = $request['search'];
-
           if(request()->has('search')){
                 $product = Product::where(function ($query) {
                 $query->where('productName', 'LIKE', '%'.request('search').'%');
@@ -28,9 +27,10 @@ class ProductController extends Controller
         }
 
         else{
-            $product = Product::orderBy('productName')->paginate(5);
+            $product = Product::orderBy('created_at')->paginate(7);
+           
         }
-        
+
          return view('product.index', compact('product', 'search'));  
     }
 
@@ -76,7 +76,7 @@ class ProductController extends Controller
         $product->update($attributes);
 
         alert()->success('Successfully Edited!');
-        return redirect('/product');
+        return back();
     }
 
     public function destroy(Product $product)

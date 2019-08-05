@@ -21,14 +21,14 @@ class UserController extends Controller
     if(request()->has('search')){
               $users = User::where(function ($query) {
               $query->where('name', 'LIKE', '%'.request('search').'%')
-              ->where('role', 'Member');
-            //   ->orWhere('classiqueID', 'LIKE', '%'.request('search').'%');
+              ->where('role', 'Member')
+              ->orWhere('classiqueID', 'LIKE', '%'.request('search').'%');
           })
           ->paginate(5);
       }
 
       else{
-          $users = User::where('role', 'Member')->orderBy('name')->paginate(5);
+          $users = User::where('role', 'Member')->orderBy('name')->paginate(8);
       }
 
        return view('users.index', compact('users', 'search'));
@@ -90,7 +90,7 @@ class UserController extends Controller
             'triNo' => ['min:0'],
             'effectivityDateFrom' => ['min:0'],
             'effectivityDateTo' => ['min:0'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255','unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
