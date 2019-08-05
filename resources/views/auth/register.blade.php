@@ -39,19 +39,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Contact Number') }}</label>
-    
-                                <div class="col-md-6">
-                                    <input id="contactNo" type="text" class="form-control @error('contactNo') is-invalid @enderror" name="contactNo" value="{{ old('contactNo') }}" required autocomplete="contactNo" autofocus>
-    
-                                    @error('contactNo')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

@@ -19,7 +19,8 @@ class CreateProductTable extends Migration
             $table->unsignedInteger('product_type_id');
             $table->foreign('product_type_id')->references('id')->on('product_type')->onDelete('cascade');
             $table->string('productPrice');
-            $table->text('productDescription');
+            $table->text('productDescription')->nullable();
+            $table->text('bvPoints');
             $table->timestamps();
         });
     }

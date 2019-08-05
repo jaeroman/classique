@@ -92,7 +92,7 @@ class ProductController extends Controller
         return request()->validate([
             'productName' => ['required', 'min:3'],
             'product_type_id' => ['required'],
-            'productDescription' => ['required', 'min:3'],
+            'bvPoints' => ['required'],
             'productPrice' => ['required', 'min:3']
         ]);
     }

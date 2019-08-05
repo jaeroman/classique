@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-Add Product - Dashboard
+Add a Member - Dashboard
 @endsection
 
 @section('content')
@@ -27,7 +27,7 @@ Add Product - Dashboard
                                 Classique ID
                             </label>
                             <p class="control">
-                             <input class="input" type="text" placeholder="Classique ID" name=""/>
+                             <input class="input" type="text" placeholder="Classique ID" name="classiqueId" value="{{ (old('classiqueId')) }}" required/>
                             </p>
                         </div>                   
                     <!-- Name -->
@@ -41,6 +41,36 @@ Add Product - Dashboard
                     </div>
 
                     <div class="field">
+                        <label class="label">
+                           Confirmation No.
+                        </label>
+                        <p class="control">
+                            <input class="input" type="text" placeholder="Confirmation No." name="confirmationNo" value="{{ (old('confirmationNo')) }}" />
+                        </p>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">
+                           Tri No.
+                        </label>
+                        <p class="control">
+                            <input class="input" type="text" placeholder="Tri No." name="triNo" value="{{ (old('triNo')) }}" />
+                        </p>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">
+                           Effectivity Date
+                        </label>
+                        <p class="control">
+                            From:
+                            <input class="input" type="date" name="effectivityDateFrom" />
+                            To:
+                            <input class="input" type="date" name="effectivityDateTo" />
+                        </p>
+                    </div>
+
+                    <div class="field">
                             <label class="label">
                                Email
                             </label>
@@ -48,22 +78,13 @@ Add Product - Dashboard
                                 <input class="input" type="email" placeholder="Email" name="email" value="{{ (old('email')) }}" required/>
                             </p>
                         </div>
-    
-                    <div class="field">
-                        <label class="label">
-                            Contact Number
-                        </label>
-                        <p class="control">
-                            <input class="input" type="text" placeholder="Contact Number" name="contactNo" value="{{ (old('contactNo')) }}" required/>
-                        </p>
-                    </div>
 
                     <div class="field">
                             <label class="label">
                                 Password
                             </label>
                             <p class="control">
-                                <input class="input" type="password" placeholder="Password" name="password" required/>
+                                <input class="input" type="text" placeholder="Password" name="password" required/>
                             </p>
                         </div>
 
@@ -72,7 +93,7 @@ Add Product - Dashboard
                                     Confirm Password
                                 </label>
                                 <p class="control">
-                                    <input class="input" type="password" placeholder="Confirm Password" name="password_confirmation" required/>
+                                    <input class="input" type="text" placeholder="Confirm Password" name="password_confirmation" required/>
                                 </p>
                             </div>
                    

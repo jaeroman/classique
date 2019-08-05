@@ -39,7 +39,9 @@ Members - Dashboard
             <tr>
                 <th>CLASSIQUE ID</th>
                 <th>NAME</th>
-                <th>CONTACT NUMBER</th>
+                <th>CONFIRMATION NO</th>
+                <th>TRI NO</th>
+                <th>EFFECTIVITY DATE</th>
                 <th>ACTION</th>
             </tr>
         </thead>
@@ -49,13 +51,11 @@ Members - Dashboard
             @foreach ($users as $item)
             <tr>
                 <form method="POST" action="/user/{{ $item->id }}">
-                <td>12345</td>
+                <td>{{ $item->classiqueId }}</td>
                 <td>{{ $item->name }}</td>
-                @if ($item->contactNo)
-                <td>{{ $item->contactNo }}</td>
-                @else
-                <td>N/A</td>
-                @endif
+                <td>{{ $item->confirmationNo }}</td>
+                <td>{{ $item->triNo }}</td>
+                <td>{{ $item->effectivityDateFrom->format('M d, Y').' - '.$item->effectivityDateTo->format('M d, Y') }}</td>
                 <td>
                   <a href="/user/{{$item->id}}/edit" class="button is-primary is-outlined">Edit</a>
 

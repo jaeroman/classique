@@ -57,6 +57,16 @@ Edit Product - Dashboard
                             <input class="input" type="text" placeholder="Price" name="productPrice" value="{{ $product->productPrice }}" required/>
                         </p>
                     </div>
+
+                    <!-- Points -->
+                    <div class="field">
+                        <label class="label">
+                            BV Points
+                        </label>
+                        <p class="control">
+                            <input class="input" type="text" placeholder="BV Points" name="bvPoints" value="{{ $product->bvPoints }}" required/>
+                        </p>
+                    </div>
             
                     <!-- Description -->
                     <div class="field">

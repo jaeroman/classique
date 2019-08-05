@@ -40,6 +40,7 @@ Inventory - Dashboard
                 <th>NAME</th>
                 <th>PRICE</th>
                 <th>TYPE</th>
+                <th>BV</th>
                 <th>ACTION</th>
             </tr>
         </thead>
@@ -50,8 +51,10 @@ Inventory - Dashboard
             <tr>
                 <form method="POST" action="/product/{{ $item->id }}">
                 <td>{{ $item->productName }}</td>
-                <td>{{ $item->productPrice }}</td>
+                
+                <td>&#8369;{{ number_format($item->productPrice, 2, '.', ',') }}</td>
                 <td>{{ $item->productType->type }}</td>
+                <td>{{ $item->bvPoints }}</td>
                 <td>
                   <a href="/product/{{$item->id}}/edit" class="button is-primary is-outlined">Edit</a>
 

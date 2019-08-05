@@ -28,7 +28,7 @@ class UserController extends Controller
       }
 
       else{
-          $users = User::where('role', 'Member')->orderBy('name')->paginate(1);
+          $users = User::where('role', 'Member')->orderBy('name')->paginate(5);
       }
 
        return view('users.index', compact('users', 'search'));
@@ -44,7 +44,7 @@ class UserController extends Controller
         $attributes = $this->validateAttributes();
         $attributes['password'] = Hash::make($request['password']);
         $attributes['role'] = 'Member';
-
+        
         User::create($attributes);
 
         alert()->success('Successfully Added a Member!');
@@ -60,15 +60,18 @@ class UserController extends Controller
     {
         $attributes = request()->validate([
             'name' => ['required', 'min:3'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'contactNo' => ['required', 'min:3']
+            'classiqueId' => ['min:0'],
+            'confirmationNo' => ['min:0'],
+            'triNo' => ['min:0'],
+            'effectivityDateFrom' => ['min:0'],
+            'effectivityDateTo' => ['min:0'],
+            'email' => ['required', 'string', 'email', 'max:255']
         ]);
 
         $user->update($attributes);
 
         alert()->success('Successfully Edited!');
         return back();
-
 
     }
 
@@ -82,10 +85,15 @@ class UserController extends Controller
     {
         return request()->validate([
             'name' => ['required', 'min:3'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'classiqueId' => ['min:0'],
+            'confirmationNo' => ['min:0'],
+            'triNo' => ['min:0'],
+            'effectivityDateFrom' => ['min:0'],
+            'effectivityDateTo' => ['min:0'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'contactNo' => ['required', 'min:3']
         ]);
     }
+
 
 }
