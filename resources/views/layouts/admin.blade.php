@@ -60,9 +60,6 @@
 
     @yield('content')
 
-
-    @yield('footer')
-
     @include('sweetalert::alert')
 </body>
 

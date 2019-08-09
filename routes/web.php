@@ -27,4 +27,6 @@ Route::resource('user', 'UserController');
 Route::get('/stock/{id}/create', 'StockController@create')->name('stock.create');
 Route::patch('/stock/{stock}/{product_id}', 'StockController@update')->name('stock.update');
 
+Route::get('/transactions/{role}', 'TransactionController@create');
+Route::get('/transactions/member/{user}', 'TransactionController@showForm');
 Route::resource('transactions', 'TransactionController');

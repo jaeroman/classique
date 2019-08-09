@@ -62,7 +62,7 @@ Dashboard
 
             <div class="column is-block">
                 <div class="box">
-                    <a href="" class="icon">
+                    <a href="/transactions" class="icon">
                         <i class="material-icons md-36">attach_money</i></a>
                     <p class="title">TRANSACTIONS</p>
                     <p class="text">Click for new transactions.</p>
@@ -74,17 +74,7 @@ Dashboard
     </div>
 </div>
 
-@section('footer')
-
-<footer class="footer">
-    <div class="content has-text-centered">
-        <p>
-            CLASSIQUE HERBS. GOOD AND NATURAL. <a href="#" class="has-text-success">COPYRIGHT 2019</a>.
-        </p>
-    </div>
-</footer>
-
-@endsection
+@include('includes.footer')
 
 
 @endsection
