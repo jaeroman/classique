@@ -16,7 +16,7 @@ class StockController extends Controller
 
     public function index()
     {
-       
+
     }
 
 

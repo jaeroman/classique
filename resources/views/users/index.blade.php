@@ -18,9 +18,7 @@ Members - Dashboard
                         <input class="input" type="text" value="{{ isset($search) ? $search : '' }}" name="search" placeholder="Search....">
                       </div>
                       <div class="control">
-                        <a class="button is-info is-outlined">
-                          Search
-                        </a>
+                          <button type="submit" class="button is-info is-outlined">Search</button> 
                       </div>
                       
                   </div>

@@ -26,3 +26,5 @@ Route::resource('user', 'UserController');
 
 Route::get('/stock/{id}/create', 'StockController@create')->name('stock.create');
 Route::patch('/stock/{stock}/{product_id}', 'StockController@update')->name('stock.update');
+
+Route::resource('transactions', 'TransactionController');

@@ -17,10 +17,8 @@ Inventory - Dashboard
                       <div class="control">
                         <input class="input" type="text" value="{{ isset($search) ? $search : '' }}" name="search" placeholder="Search....">
                       </div>
-                      <div class="control">
-                        <a class="button is-info is-outlined">
-                          Search
-                        </a>
+                      <div class="control">   
+                          <button type="submit" class="button is-info is-outlined">Search</button>   
                       </div>
                       
                   </div>
