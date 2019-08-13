@@ -28,7 +28,7 @@ Add a Member - Dashboard
                                 </label>
                                 <p class="control">
                                     <input class="input" type="text" placeholder="Classique ID" name="classiqueId"
-                                        value="{{ (old('classiqueId')) }}" required />
+                                        value="{{ (old('classiqueId')) }}" />
                                 </p>
                             </div>
                             <!-- Name -->
