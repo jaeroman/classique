@@ -29,4 +29,9 @@ Route::patch('/stock/{stock}/{product_id}', 'StockController@update')->name('sto
 
 Route::get('/transactions/{role}', 'TransactionController@create');
 Route::get('/transactions/member/{user}', 'TransactionController@showForm');
+
+// Route::post('/transactions-products/{id}', 'TransactionProductsController@store')->name('transactions.view');
 Route::resource('transactions', 'TransactionController');
+Route::resource('transactions-products', 'TransactionProductsController');
+
+// Route::get('transactions-view', 'TransactionProductsController@view')->name('transaction.view');

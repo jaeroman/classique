@@ -15,7 +15,7 @@
                 <li><a href="/product">Inventory</a></li>
                 <li><a href="">Sales</a></li>
                 <li><a href="/user">Members</a></li>
-                <li><a href="">Transactions</a></li>
+                <li><a href="/transactions">Transactions</a></li>
             </ul>
         </aside>
     </div>

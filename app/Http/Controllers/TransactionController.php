@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Transaction;
 use App\User;
+use App\Product;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -32,8 +33,15 @@ class TransactionController extends Controller
 
     public function showForm(Request $request, User $user)
     {
-        // TO DO HERE 
-        return view('');
+        $attributes['user_id'] = $user->id;
+        $attributes['transactionName'] = $user->name;
+
+        Transaction::create($attributes);
+
+        $transactionID = Transaction::where('user_id', $user->id)->latest()->first()->id;
+
+        $products = Product::all();
+        return view('transaction.show-form', compact('user', 'products', 'transactionID'));
     }
 
     public function store(Request $request)
@@ -43,7 +51,7 @@ class TransactionController extends Controller
 
     public function show(Transaction $transaction)
     {
-        //
+        //  
     }
 
     public function edit(Transaction $transaction)

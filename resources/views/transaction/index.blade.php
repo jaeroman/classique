@@ -31,9 +31,9 @@ New Transaction
 
 <div class="container has-text-centered">
     <div class="row">
-        <div class="columns is-half">
+        <div class="columns">
 
-            <div class="column is-block">
+            <div class="column" style="margin-left: 150px;">
                 <div class="box">
                     <a href="/transactions/member" class="icon">
                         <i class="material-icons md-36">person</i></a>
@@ -42,7 +42,7 @@ New Transaction
                 </div>
             </div>
 
-            <div class="column is-block">
+            <div class="column">
                 <div class="box">
                     <a href="/transactions/nonmember" class="icon">
                         <i class="material-icons md-36">person</i></a>

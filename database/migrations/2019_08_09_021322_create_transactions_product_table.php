@@ -17,7 +17,8 @@ class CreateTransactionsProductTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('transaction_id');
             $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
-            $table->string('productName');
+            $table->unsignedInteger('productName');
+            $table->foreign('productName')->references('id')->on('product')->onDelete('cascade');
             $table->string('productQuantity');
             $table->timestamps();
         });

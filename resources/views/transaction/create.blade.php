@@ -101,8 +101,8 @@ Member Transaction - Dashboard
 </form> --}}
 
 @if ($role == 'member')
-<h1>Seach the name or Classique ID of the member</h1>
-<form>
+<h2>Search the name or Classique ID of the member</h2>
+<form style="margin-left: 35%;">
     <div class="field has-addons ">
         <div class="control">
             <input class="input" type="text" value="{{ isset($search) ? $search : '' }}" name="search"
@@ -115,12 +115,13 @@ Member Transaction - Dashboard
     </div>
 
 </form>
+<br>
 
 
 @if($search)
 
 <div class="panel-table is-desktop is-centered">
-    <table class="table is-hoverable pricingtable">
+    <table class="table is-striped pricingtable">
         
         <thead>
             <tr>
