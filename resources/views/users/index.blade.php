@@ -66,8 +66,6 @@ Members - Dashboard
                     @csrf
                     @method('DELETE')
                     <a onclick="return confirm('Are you sure?')"> <button class="button is-danger is-outlined" type="submit" >Delete</button></a>
-
-                  <a href="" class="button is-info is-outlined">More Info</a></td>
                 </form>
            </tr>
             @endforeach

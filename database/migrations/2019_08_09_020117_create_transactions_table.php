@@ -21,6 +21,7 @@ class CreateTransactionsTable extends Migration
             $table->string('transactionName')->nullable();
             $table->string('transactionDate')->nullable();
             $table->string('transactionTotal')->nullable();
+            $table->string('transactionTotalBV')->nullable();
             $table->timestamps();
         });
     }

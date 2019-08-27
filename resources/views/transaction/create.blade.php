@@ -121,28 +121,26 @@ Member Transaction - Dashboard
 @if($search)
 
 <div class="panel-table is-desktop is-centered">
-    <table class="table is-striped pricingtable">
-        
-        <thead>
-            <tr>
-                <th>CLASSIQUE ID</th>
-                <th>NAME</th>
-            </tr>
-        </thead>
 
-        <tbody>
-            @foreach ($users as $item)
-            <tr>
-                <td><a href="/transactions/member/{{$item->id}}">{{ $item->classiqueId }}</a></td>
-                <td><a href="/transactions/member/{{$item->id}}">{{ $item->name }}</a></td>
-                <td></td>
-                </form>
-           </tr>
-            @endforeach
+        <table class = "table is-bordered is-centered is-full">
+                <thead>
+                   <tr>
+                      <th>CLASSIQUE ID</th>
+                      <th>NAME</th>
+                   </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                    @foreach ($users as $item)
+                    <td><a href="/transactions/member/{{$item->id}}">{{ $item->classiqueId }}</a></td>
+                    <td><a href="/transactions/member/{{$item->id}}">{{ $item->name }}</a></td>
+                   </tr>
+                   @endforeach
+                </tbody>
+             </table>
 
-            @endif
-        </tbody>
-    </table>
+
+   @endif
 <br>
     <a href="/transactions" class="button is-info is-outlined">BACK</a>
 </div>

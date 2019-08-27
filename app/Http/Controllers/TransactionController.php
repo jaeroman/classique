@@ -64,8 +64,10 @@ class TransactionController extends Controller
         //
     }
 
-    public function destroy(Transaction $transaction)
+    public function delete(Transaction $transaction)
     {
-        //
+        $transaction->delete();
+
+        return view('transaction.index');
     }
 }

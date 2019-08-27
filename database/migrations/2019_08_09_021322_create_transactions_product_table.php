@@ -20,6 +20,8 @@ class CreateTransactionsProductTable extends Migration
             $table->unsignedInteger('productName');
             $table->foreign('productName')->references('id')->on('product')->onDelete('cascade');
             $table->string('productQuantity');
+            $table->string('totalAmount');
+            $table->string('totalBV');
             $table->timestamps();
         });
     }

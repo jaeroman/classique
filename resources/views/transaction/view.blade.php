@@ -12,7 +12,7 @@ Confirm Transaction - Dashboard
 
 <div class="column is-main-content">
         <div class="columns is-centered">
-            <div class="column is-6">
+            <div class="column is-12">
                 <div class="panel">
                     <p class="panel-heading has-text-black-bis">
                         New Transaction
@@ -26,7 +26,7 @@ Confirm Transaction - Dashboard
                                 <label class="label">
                                     OR Number : 
                                 </label>       
-                                
+
                             </div>
 
                             <div class="field">
@@ -67,13 +67,25 @@ Confirm Transaction - Dashboard
                                         <td>{{ $item->product->productName }}</td>
                                         <td>{{ $item->productQuantity }}</td>
                                         <td>&#8369;{{ number_format( $item->product->productPrice, 2, '.', ',') }}</td>
-                                        <td>&#8369;{{ number_format( $item->product->productPrice * $item->productQuantity, 2, '.', ',') }}</td>
+                                        <td>&#8369;{{ number_format( $item->totalAmount, 2, '.', ',') }}</td>
                                         <td>{{ $item->product->bvPoints }}</td>
-                                        <td>{{ $item->product->bvPoints * $item->productQuantity }}</td>
+                                        <td>{{ $item->totalBV }}</td>
                                    </tr>
                                 @endforeach
                                 </tbody>
-                                Grand Total: 
+
+                                <tfoot>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th>Grand Total: &#8369;{{ number_format( $grandTotal, 2, '.', ',' ) }} </th>
+                                            <th></th>
+                                        <th>Total BV: {{ $grandBV }}</th>
+                                            
+    
+                                        </tr>
+                                    </tfoot>
                             </table>
                             
                             {{-- <div class="field">
@@ -98,7 +110,7 @@ Confirm Transaction - Dashboard
                             <!-- Buttons -->
                             <div class="field is-grouped">
                                 <p class="control">
-                                    <a href="/transactions/member" class="button is-info is-outlined">BACK</a>
+                                    <a href="/transactions-products/back/{{ $transactionID }}" class="button is-info is-outlined">BACK</a>
                                     <button type="submit" class="button is-success is-outlined">SUBMIT</button>
                                 </p>
                             </div>

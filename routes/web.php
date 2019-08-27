@@ -27,10 +27,12 @@ Route::resource('user', 'UserController');
 Route::get('/stock/{id}/create', 'StockController@create')->name('stock.create');
 Route::patch('/stock/{stock}/{product_id}', 'StockController@update')->name('stock.update');
 
+Route::get('/transactions/cancel/{transaction}', 'TransactionController@delete')->name('transactions.delete');
 Route::get('/transactions/{role}', 'TransactionController@create');
 Route::get('/transactions/member/{user}', 'TransactionController@showForm');
 
-// Route::post('/transactions-products/{id}', 'TransactionProductsController@store')->name('transactions.view');
+Route::get('transactions-products/back/{id}', 'TransactionProductsController@delete');
+
 Route::resource('transactions', 'TransactionController');
 Route::resource('transactions-products', 'TransactionProductsController');
 
